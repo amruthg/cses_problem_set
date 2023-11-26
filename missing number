@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long k=0;
+    long long n;
+    cin>>n;
+    long long sum=0;
+    for(int i=0;i<n-1;i++){
+        cin>>k;
+        sum+=k;
+    }
+    k=n*(n+1)/2;
+    cout<<k-sum;
+    return 0;
+    
+}
