@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int n,m;
+vector<vector<int>> adjacency_list;
+vector<bool> visited;
+vector<long> lead;
+
+void dfs(int i){
+    visited[i-1]=true;
+    for(auto u: adjacency_list[i-1]){
+        if(!visited[u-1]){
+            dfs(u);
+        }
+    }
+}
+
+int main(){
+
+    cin>>n>>m;
+    adjacency_list.resize(n);
+    visited.resize(n,false);
+    int a,b;
+    for(int i=0;i<m;i++){
+        cin>>a>>b;
+        adjacency_list[a-1].push_back(b);
+        adjacency_list[b - 1].push_back(a);
+    }
+
+    for(int i=0;i<n;i++){
+        if(!visited[i]){
+            visited[i]=true;
+            lead.push_back(i+1);
+            dfs(i+1);
+        }
+    }
+
+    cout<<lead.size()-1<<endl;
+    for(auto i=1;i<lead.size();i++){
+        cout<<lead[i-1]<<" "<<lead[i]<<endl;
+    }
+
+    return 0;
+
+}
