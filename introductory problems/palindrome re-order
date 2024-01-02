@@ -12,7 +12,7 @@ int main(){
 	}
 
 	int count=0;//the count of number of characters with odd freq;
-	char c='';//the char whose freq is odd;
+	char c=' ';//the char whose freq is odd;
 	for(auto u:mp){
 		if(u.second&1){
 			count++;
