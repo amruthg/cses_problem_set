@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int mod = (int)1e9+7;
+
+//the given question cant be solved using pow/powl because they operate on floating numbers
+//which affects the precision.
+
+//we can use linear exponentiation for this question but it will fail in case of n>10^7
+
+void expo(int n){
+
+	int ans=1;
+	while(n--){
+		ans=(ans*2)%mod;
+	}
+	cout<<ans;
+	return;
+};
+
+//but in case linear exponentation fails, what do we do? we use binary exponentation which calulates 
+//n=a^b in logn base a time complexity.
+
+void binary_exponentiation(int n){
+
+	long ans=2;
+	long result=1;
+	while(n){
+		if(n&1){
+			result=(result*ans)%mod;
+		}
+
+		ans=(ans*ans)%mod;
+		n>>=1;
+	}
+
+	cout<<result;
+	return;
+};
+
+int main(){
+
+	int n;
+	cin>>n;
+
+	expo(n);
+	cout<<endl;
+	binary_exponentiation(n);
+
+	return 0;
+}
