@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//here we can say that the given solution is intersection of the lines x+2y=a and 2x+y=b;
+
+//here x=2b-a /3 and y=2a -b/3
+
+//so only if x and y are integers the solution exists
+
+int main(){
+
+	int t;
+	long long a=0,b=0;
+	cin>>t;
+	while(t--){
+		cin>>a>>b;
+
+		//we also have to make sure that the solutions are positive
+		if((2*b-a)%3==0 and (2*a-b)%3==0 and 2*b>a and 2*a>b){
+			cout<<"YES"<<endl;
+			continue;
+		}
+
+		cout<<"NO"<<endl;
+	}
+
+	return 0;
+}
